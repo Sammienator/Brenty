@@ -1,0 +1,23 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=MonteCarlo&family=Redressed&family=Salsa&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Carattere&display=swap');
+
+
+
+h1,h2,h3,nav,footer {
+  font-family: "Berkshire Swash", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p, form, button{
+
+    font-family: "Carattere", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 26px;
+  }
+  
+
