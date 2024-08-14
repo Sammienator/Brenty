@@ -67,7 +67,7 @@ const Cutlery = () => {
                     {item.name}
                   </h3>
                   <p className="mt-2 text-gray-700 dark:text-gray-300">{item.price}</p>
-                  <button className="mt-4 px-6 py-2 bg-green-500 dark:bg-green-600 text-white square hover:bg-green-600 dark:hover:bg-green-700 transition duration-300 ease-in-out flex items-center">
+                  <button className="mt-4 px-6 py-2 bg-[#C39898] dark:bg-[#C39898] text-white square hover:bg-green-600 dark:hover:bg-green-700 transition duration-300 ease-in-out flex items-center">
                     Add to Cart <FaShoppingCart className="ml-2" />
                   </button>
                 </div>

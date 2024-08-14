@@ -88,7 +88,7 @@ const Shop = () => {
                   </div>
                   <div className="flex items-center justify-between mt-4">
                     <button
-                      className={`px-6 py-2 bg-green-500 dark:bg-green-600 text-white ${product.soldOut ? 'cursor-not-allowed bg-gray-400' : 'hover:bg-green-600 dark:hover:bg-green-700'} transition duration-300 ease-in-out square`}
+                      className={`px-6 py-2 bg-[#C39898] dark:bg-[#C39898] text-white ${product.soldOut ? 'cursor-not-allowed bg-gray-400' : 'hover:bg-green-600 dark:hover:bg-green-700'} transition duration-300 ease-in-out square`}
                       disabled={product.soldOut}
                     >
                       {product.soldOut ? 'Sold Out' : 'Add to Cart'}
