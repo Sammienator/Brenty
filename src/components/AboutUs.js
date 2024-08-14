@@ -23,7 +23,7 @@ const AboutUs = () => {
         </div>
 
         <div className="mt-8" data-aos="fade-up" data-aos-duration="1000">
-          <p className=" text-black font-semibold text-2xl  dark:text-black hover:text-gray-900 dark:hover:text-[#987070] transition duration-300 ease-in-out">
+          <p className=" text-black font-semibold text-2xl  dark:text-black hover:text-gray-900 dark:hover:text-[#987070] transition duration-300 ease-in-out align-text-center text-center">
             At Brenty, we ensure that every tea is ethically sourced and crafted with love and care. Our team is dedicated to curating teas that not only taste wonderful but also nourish the body and mind. With a wide range of flavors and blends, there's a perfect cup of tea waiting for you.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
           </p>
         </div>
