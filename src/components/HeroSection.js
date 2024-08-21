@@ -9,7 +9,7 @@ import pic3 from '../assets/pic3.png'
 const carouselImages = [
   { src: pic1, caption: 'Discover teas,in the Middle East!' },
   { src:  pic2, caption: 'A journey in every sip, Simplicitea?' },
-  { src:  pic3, caption: 'Tradition and qualitea!' },
+  { src:  pic3, caption: 'Tradition and Qualitea!' },
 ];
 
 const HeroSection = () => {
@@ -45,8 +45,8 @@ const HeroSection = () => {
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-white dark:text-gray-300">
             <h1 className="text-5xl font-bold mb-4" data-aos="fade-up">{image.caption}</h1>
             <div className="flex space-x-4" data-aos="fade-up" data-aos-delay="600">
-              <button className="px-6 py-3 bg-[#DBB5B5] dark:bg-[#DBB5B5] rounded-full hover:bg-green-700 dark:hover:bg-green-800 text-black">Shop Now</button>
-              <button className="px-6 py-3 bg-transparent border border-white dark:border-gray-300 rounded-full hover:bg-[#DBB5B5] dark:hover:bg-[#DBB5B5] hover:text-black  text-white dark:hover:text-gray-800">Learn More</button>
+              <button className="px-6 py-3 bg-[#FFC300] dark:bg-[#FFC300] rounded-full hover:bg-green-700 dark:hover:bg-green-800 text-black">Shop Now</button>
+              <button className="px-6 py-3 bg-transparent border border-white dark:border-gray-300 rounded-full hover:bg-[#FFC300] dark:hover:bg-[#DBB5B5] hover:text-black  text-white dark:hover:text-gray-800">Learn More</button>
             </div>
           </div>
         </div>

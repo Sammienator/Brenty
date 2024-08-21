@@ -11,6 +11,7 @@ import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 
 import './App.css'; // Ensure Tailwind CSS is configured properly
+import Location from './components/Location';
 
 function App() {
 
@@ -19,11 +20,13 @@ function App() {
     <div className="App">
       <Navbar />
       <HeroSection />
-      <AboutUs />
+      <Location/>
+      {/* this is for testing */}
       <Gallery />
       <TeaInfo />
       <Shop/>
       <Cutlery />
+      <AboutUs />
       <Testimonials />
       <Footer />
       {/* Other components will go here */}

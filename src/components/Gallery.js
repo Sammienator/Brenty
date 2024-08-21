@@ -16,7 +16,7 @@ const teas = [
   },
   { 
     src: teajar, 
-    name: ' Essential Range', 
+    name: 'Essential Range', 
     benefits: [
       { icon: FaHeart, description: 'Improves heart health' },
       { icon: FaBolt, description: 'Increases alertness' },
@@ -43,20 +43,27 @@ const Gallery = () => {
         </h2>
         <div className="space-y-16 mt-8">
           {teas.map((tea, index) => (
-            <div key={index} className=" rounded-lg overflow-hidden hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out" data-aos="fade-up" data-aos-duration="1000">
-              <div className="flex justify-center">
-                <img src={tea.src} alt={tea.name} className="w-full max-w-xs object-cover" />
-              </div>
-              <div className="p-4 text-center">
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">{tea.name}</h3>
-                <div className="flex justify-center space-x-8">
+            <div key={index} className="flex flex-col lg:flex-row items-center rounded-lg overflow-hidden hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out" data-aos="fade-up" data-aos-duration="1000">
+              <div className="p-4 lg:w-1/2 flex  items-center text-center space-y-6">
+                {/* Row 1: Name */}
+                <h3 className="text-2xl p-4  ml-5 font-semibold text-gray-900 dark:text-white">{tea.name}</h3>
+                
+                {/* Row 2: Icons */}
+                <div className="space-y-6">
                   {tea.benefits.map((benefit, idx) => (
-                    <div key={idx} className="flex flex-col items-center">
-                      <benefit.icon className="text-4xl text-[#DBB5B5] dark:text-[#DBB5B5] mb-2" />
-                      <p className="text-gray-600 dark:text-gray-300 text-center">{benefit.description}</p>
-                    </div>
+                    <benefit.icon key={idx} className="text-4xl text-[#FFC300] dark:text-[#FFC300]" />
                   ))}
                 </div>
+
+                {/* Row 3: Descriptions */}
+                <div className="space-y-4">
+                  {tea.benefits.map((benefit, idx) => (
+                    <p key={idx} className="text-gray-600 dark:text-gray-300">{benefit.description}</p>
+                  ))}
+                </div>
+              </div>
+              <div className="lg:w-1/2 flex lg:justify-between ml-5 ">
+                <img src={tea.src} alt={tea.name} className="w-full max-w-xs object-cover" />
               </div>
             </div>
           ))}
