@@ -56,7 +56,7 @@ const TeaInfo = () => {
               key={index} 
               className="flex flex-col items-center text-center"
               data-aos={index % 2 === 0 ? "fade-left" : "fade-right"} 
-              data-aos-duration="1000"
+              data-aos-duration="4000"
             >
               <div className="w-64 h-64 mb-6">
                 <img 
@@ -66,10 +66,10 @@ const TeaInfo = () => {
                 />
               </div>
               <div>
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white hover:text-[#C39898] transition duration-300 ease-in-out">
+                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white hover:text-[#C39898] transition duration-1000 ease-in-out">
                   {tea.title}
                 </h3>
-                <p className="mt-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition duration-300 ease-in-out">
+                <p className="mt-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition duration-1000 ease-in-out">
                   {tea.description}
                 </p>
               </div>

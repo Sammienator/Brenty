@@ -29,18 +29,7 @@ const testimonials = [
     name: 'Emily Davis',
     message: '“Their green tea has become a part of my daily routine. Highly recommend!”',
   },
-  {
-    id: 5,
-    image: testimonial,
-    name: 'Michael Brown',
-    message: '“The best tea I’ve ever had. The atmosphere is also amazing.”',
-  },
-  {
-    id: 6,
-    image: testimonial,
-    name: 'Sophia Wilson',
-    message: '“An absolute must-try for any tea lover. Exceptional quality and service.”',
-  },
+  
 ];
 
 const Testimonials = () => {
