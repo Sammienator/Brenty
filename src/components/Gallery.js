@@ -8,31 +8,34 @@ import { FaLeaf, FaHeart, FaBolt } from 'react-icons/fa';
 
 const teas = [
   { 
-    images: [lemon, teajar, pic4], // Array of images for the carousel
+    image: lemon, // Single image for the carousel
     name: 'Herbal Range', 
     benefits: [
       { icon: FaLeaf, description: 'Rich in antioxidants' },
       { icon: FaHeart, description: 'Supports heart health' },
       { icon: FaBolt, description: 'Boosts energy levels' }
-    ]
+    ],
+    description: 'Herbal Range teas are known for their powerful antioxidants and health benefits, including boosting energy and supporting heart health.'
   },
   { 
-    images: [teajar, pic4, lemon], // Array of images for the carousel
+    image: teajar, // Single image for the carousel
     name: 'Essential Range', 
     benefits: [
       { icon: FaHeart, description: 'Improves heart health' },
       { icon: FaBolt, description: 'Increases alertness' },
       { icon: FaLeaf, description: 'Contains powerful antioxidants' }
-    ]
+    ],
+    description: 'Essential Range teas are crafted to enhance alertness and improve heart health with natural antioxidants.'
   },
   { 
-    images: [pic4, lemon, teajar], // Array of images for the carousel
+    image: pic4, // Single image for the carousel
     name: 'Nova Range', 
     benefits: [
       { icon: FaLeaf, description: 'Boosts metabolism' },
       { icon: FaHeart, description: 'Promotes heart health' },
       { icon: FaBolt, description: 'Enhances energy levels' }
-    ]
+    ],
+    description: 'Nova Range teas are formulated to boost metabolism and energy levels, promoting overall well-being.'
   }
 ];
 
@@ -43,40 +46,36 @@ const Gallery = () => {
         <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white" data-aos="fade-up" data-aos-duration="1000">
           Tea Gallery
         </h2>
-        <div className="space-y-16 mt-8">
-          {teas.map((tea, index) => (
-            <div key={index} className="flex flex-col lg:flex-row items-center rounded-lg overflow-hidden hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out" data-aos="fade-up" data-aos-duration="1000">
-              <div className="p-4 lg:w-1/2 flex flex-col items-center text-center space-y-6">
-                {/* Row 1: Name */}
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">{tea.name}</h3>
+        <div className="mt-8">
+          <Carousel 
+            showThumbs={false} 
+            infiniteLoop 
+            useKeyboardArrows 
+            autoPlay 
+            interval={9000} // Set interval to 7 seconds (7000ms)
+            showStatus={false} // Hide the status indicator
+          >
+            {teas.map((tea, index) => (
+              <div key={index} className="relative">
+                {/* Full-Width Image */}
+                <img src={tea.image} alt={tea.name} className="w-full h-screen object-cover" />
                 
-                {/* Row 2: Icons */}
-                <div className="flex justify-center space-x-4">
-                  {tea.benefits.map((benefit, idx) => (
-                    <benefit.icon key={idx} className="text-4xl text-[#FFC300] dark:text-[#FFC300]" />
-                  ))}
-                </div>
-
-                {/* Row 3: Descriptions */}
-                <div className="space-y-4">
-                  {tea.benefits.map((benefit, idx) => (
-                    <p key={idx} className="text-gray-600 dark:text-gray-300">{benefit.description}</p>
-                  ))}
+                {/* Overlay Content */}
+                <div className="absolute inset-0 flex flex-col justify-end items-center text-center text-white p-8 bg-black bg-opacity-40">
+                  <h3 className="text-3xl font-semibold mb-4">{tea.name}</h3>
+                  <div className="flex justify-center space-x-4 mb-4">
+                    {tea.benefits.map((benefit, idx) => (
+                      <div key={idx} className="flex flex-col items-center">
+                        <benefit.icon className="text-4xl text-[#FFC300]" />
+                        <p className="mt-2">{benefit.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="max-w-2xl">{tea.description}</p>
                 </div>
               </div>
-
-              {/* Carousel Section */}
-              <div className="lg:w-1/2">
-                <Carousel showThumbs={false} infiniteLoop useKeyboardArrows autoPlay>
-                  {tea.images.map((image, imgIndex) => (
-                    <div key={imgIndex}>
-                      <img src={image} alt='picss' className="w-full max-w-xs object-cover mx-auto" />
-                    </div>
-                  ))}
-                </Carousel>
-              </div>
-            </div>
-          ))}
+            ))}
+          </Carousel>
         </div>
       </div>
     </section>

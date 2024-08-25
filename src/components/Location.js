@@ -44,11 +44,11 @@ const Location = () => {
               <div className="p-6 space-y-4 text-center">
                 <h3 className="text-3xl font-semibold text-gray-900 dark:text-white">{location.country}</h3>
                 <p className="flex items-center justify-center text-gray-600 dark:text-gray-300">
-                  <FaMapMarkerAlt className="text-2xl text-[#DBB5B5] mr-2" />
+                  <FaMapMarkerAlt className="text-2xl text-[#FFC300] mr-2" />
                   {location.address}
                 </p>
                 <p className="flex items-center justify-center text-gray-600 dark:text-gray-300">
-                  <FaClock className="text-2xl text-[#DBB5B5] mr-2" />
+                  <FaClock className="text-2xl text-[#FFC300] mr-2" />
                   {location.openingHours}
                 </p>
               </div>
