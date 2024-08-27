@@ -1,65 +1,69 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import 'aos/dist/aos.css';
 import testimonial from '../assets/testimonial.jpg';
-
-
 
 const testimonials = [
   {
     id: 1,
     image: testimonial,
-    name: 'John Doe',
-    message: '“The tea here is simply the best. I’ve never felt more relaxed!”',
+    name: 'Ahmad Al-Farsi',
+    message: '“This tea transports me back to my childhood. The taste is unmatched.”',
   },
   {
     id: 2,
     image: testimonial,
-    name: 'Jane Smith',
-    message: '“A wonderful experience every time. The flavors are rich and authentic.”',
+    name: 'Fatima Al-Zahra',
+    message: '“Every sip is a journey of flavors. I feel so connected to nature.”',
   },
   {
     id: 3,
     image: testimonial,
     name: 'David Johnson',
-    message: '“I love the variety and quality. The staff is also very friendly.”',
+    message: '“The best tea experience I’ve ever had. Highly recommend to all tea lovers!”',
   },
   {
     id: 4,
     image: testimonial,
-    name: 'Emily Davis',
-    message: '“Their green tea has become a part of my daily routine. Highly recommend!”',
+    name: 'Kwame Nkrumah',
+    message: '“This tea has become a staple in my home. Truly remarkable.”',
   },
-  
 ];
 
 const Testimonials = () => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % testimonials.length);
+    }, 9000); // Slower transition (6 seconds)
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="testimonials" className="py-16 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white" data-aos="fade-up">
+        <h2 className="text-4xl font-extrabold text-center text-gray-900 dark:text-white mb-12" data-aos="fade-up">
           What Our Customers Say
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={testimonial.id}
-              className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg transform transition duration-300 ease-in-out"
-              data-aos={index % 2 === 0 ? 'fade-right' : 'fade-left'}
-              data-aos-duration="1000"
-            >
-              <div className="flex items-center mb-4">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-12 h-12 object-cover rounded-full mr-4"
-                />
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{testimonial.name}</h3>
-                </div>
-              </div>
-              <p className="text-gray-700 dark:text-gray-300 italic">“{testimonial.message}”</p>
-            </div>
-          ))}
+        <div className="flex flex-col items-center">
+          <div
+            className="bg-gray-100 dark:bg-gray-800 p-10 rounded-lg shadow-xl w-full md:w-3/4 lg:w-1/2"
+            data-aos="fade-in"
+            data-aos-duration="6000" // Slower fade-in duration (2 seconds)
+            key={testimonials[current].id}
+          >
+            <img
+              src={testimonials[current].image}
+              alt={testimonials[current].name}
+              className="w-24 h-24 object-cover rounded-full mb-6 mx-auto"
+            />
+            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
+              {testimonials[current].name}
+            </h3>
+            <p className="text-lg text-gray-700 dark:text-gray-300 italic text-center">
+              {testimonials[current].message}
+            </p>
+          </div>
         </div>
       </div>
     </section>

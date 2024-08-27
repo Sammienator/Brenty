@@ -1,4 +1,6 @@
 import React from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import HeroSection from './components/HeroSection';
 import Navbar from './components/Navbar'; // Removed .js extension
@@ -15,6 +17,10 @@ import Location from './components/Location';
 import Form from './components/Form';
 
 function App() {
+
+  AOS.init({
+    once: true, // whether animation should happen only once - while scrolling down
+  });
 
   return (
     <>
