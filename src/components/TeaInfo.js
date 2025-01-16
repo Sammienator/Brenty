@@ -1,42 +1,26 @@
 import React from 'react';
 import lemon from '../assets/lemon.png';
-import teajar from '../assets/teajar.png';
-import pic4 from '../assets/pic4.png';
 import pic5 from '../assets/pic5.png';
-import raw from '../assets/raw.jpg';
 import masala from '../assets/masala.jpg';
 
 const teasInfo = [
   {
     imgSrc: pic5,
-    title: 'Green Tea',
+    title: 'Essential Range',
     description: 'Rich in antioxidants, helps boost metabolism, improves brain function, and promotes fat loss.',
   },
-  {
-    imgSrc: pic4,
-    title: 'Black Tea',
-    description: 'Provides a rich flavor, improves heart health, reduces cholesterol, and enhances mental alertness.',
-  },
-  {
-    imgSrc: teajar,
-    title: 'Oolong Tea',
-    description: 'Combines the benefits of green and black tea, aids in weight loss, improves skin health, and reduces stress.',
-  },
+  
   {
     imgSrc: lemon,
-    title: 'Lemon Green Tea',
+    title: 'Herbal Range',
     description: 'Boosts immunity, detoxifies the body, improves digestion, and promotes radiant skin.',
   },
   {
     imgSrc: masala,
-    title: 'Masala Tea',
+    title: 'Nova Range',
     description: 'Enhances digestion, boosts immunity, improves circulation, and has anti-inflammatory properties.',
   },
-  {
-    imgSrc: raw,
-    title: 'Raw Oolong Tea',
-    description: 'Promotes heart health, reduces inflammation, enhances weight management, and strengthens bones.',
-  },
+ 
 ];
 
 const TeaInfo = () => {

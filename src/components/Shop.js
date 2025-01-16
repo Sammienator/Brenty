@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import lemon from '../assets/lemon.png';
 import teajar from '../assets/teajar.png';
@@ -33,6 +33,13 @@ const renderStars = (rating) => {
 };
 
 const Shop = () => {
+  const [cart, setCart] = useState([]);
+  const [checkoutDetails, setCheckoutDetails] = useState({
+    email: '',
+    deliveryLocation: ''
+  });
+  const [showCheckoutForm, setShowCheckoutForm] = useState(false);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -63,18 +70,39 @@ const Shop = () => {
     ],
   };
 
+  const addToCart = (product) => {
+    const existingProduct = cart.find(item => item.id === product.id);
+    if (existingProduct) {
+      setCart(cart.map(item => 
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      ));
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
+  };
+
+  const updateQuantity = (id, quantity) => {
+    setCart(cart.map(item => item.id === id ? { ...item, quantity } : item));
+  };
+
+  const handleCheckout = (e) => {
+    e.preventDefault();
+    console.log('Sending email with:', { cart, checkoutDetails });
+    // Placeholder for email sending logic
+    // sendEmail({ cart, checkoutDetails });
+    setCart([]);
+    setCheckoutDetails({ email: '', deliveryLocation: '' });
+    setShowCheckoutForm(false); // Hide form after submission
+  };
+
   return (
     <section id="shop" className="py-16 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white" data-aos="fade-up" data-aos-duration="1000">Shop Our Teas</h2>
         <Slider {...settings} className="mt-8">
-          {products.map((product, index) => (
+          {products.map((product) => (
             <div key={product.id} className="px-4">
-              <div
-                className={`bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden hover:shadow-lg transform transition duration-300 ease-in-out ${product.soldOut ? 'opacity-50' : 'hover:scale-105'}`}
-                data-aos={index % 3 === 0 ? 'fade-up' : index % 3 === 1 ? 'fade-down' : 'zoom-in'}
-                data-aos-duration="1000"
-              >
+              <div className={`bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden hover:shadow-lg transform transition duration-300 ease-in-out ${product.soldOut ? 'opacity-50' : 'hover:scale-105'}`}>
                 <img src={product.image} alt={product.name} className="w-full h-64 object-cover" />
                 <div className="p-4">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white hover:text-green-700 transition duration-300 ease-in-out">
@@ -87,18 +115,66 @@ const Shop = () => {
                     </div>
                   </div>
                   <div className="flex items-center justify-between mt-4">
-                    <button
+                    <button 
+                      onClick={() => addToCart(product)} 
                       className={`px-6 py-2 bg-[#FFC300] dark:bg-[#FFC300] text-white ${product.soldOut ? 'cursor-not-allowed bg-gray-400' : 'hover:bg-green-600 dark:hover:bg-green-700'} transition duration-300 ease-in-out square`}
                       disabled={product.soldOut}
                     >
                       {product.soldOut ? 'Sold Out' : 'Add to Cart'}
                     </button>
+                    {cart.find(item => item.id === product.id) && (
+                      <input 
+                        type="number" 
+                        min="1" 
+                        value={cart.find(item => item.id === product.id)?.quantity || 1}
+                        onChange={(e) => updateQuantity(product.id, parseInt(e.target.value))}
+                        className="mt-2 w-20"
+                      />
+                    )}
                   </div>
                 </div>
               </div>
             </div>
           ))}
         </Slider>
+
+        {/* Show 'Checkout' button if there are items in the cart */}
+        {cart.length > 0 && (
+          <div className="text-center mt-10">
+            <button 
+              onClick={() => setShowCheckoutForm(!showCheckoutForm)} 
+              className="px-6 py-3 bg-green-500 text-white hover:bg-green-700 transition duration-300"
+            >
+              {showCheckoutForm ? 'Hide Checkout' : 'Checkout'}
+            </button>
+          </div>
+        )}
+
+        {/* Show the form only if showCheckoutForm is true */}
+        {showCheckoutForm && (
+          <form onSubmit={handleCheckout} className="mt-10">
+            <input 
+              type="email" 
+              value={checkoutDetails.email} 
+              onChange={(e) => setCheckoutDetails({ ...checkoutDetails, email: e.target.value })} 
+              placeholder="Your Email" 
+              required 
+              className="mt-4 w-full p-2 border rounded"
+            />
+            <select 
+              value={checkoutDetails.deliveryLocation} 
+              onChange={(e) => setCheckoutDetails({ ...checkoutDetails, deliveryLocation: e.target.value })} 
+              required 
+              className="mt-4 w-full p-2 border rounded"
+            >
+              <option value="">Select Delivery Location</option>
+              <option value="Saudi Arabia">Saudi Arabia</option>
+              <option value="Dubai">Dubai</option>
+              <option value="Kuwait">Kuwait</option>
+            </select>
+            <button type="submit" className="mt-4 px-6 py-2 bg-green-500 text-white hover:bg-green-700 transition duration-300">Submit Order</button>
+          </form>
+        )}
       </div>
     </section>
   );

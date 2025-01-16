@@ -8,19 +8,19 @@ const locations = [
 
     address: '123 Tea Road, Riyadh, Saudi Arabia',
     openingHours: '8:00 AM - 6:00 PM',
-    iframeSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.493137847623!2d36.683081900000005!3d-1.2470785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f18d575309a17%3A0xc1d6d4f5d6dc3221!2sUthiru%20Genesis-Kinoo%20Branch!5e0!3m2!1sen!2ske!4v1724051307338!5m2!1sen!2ske', // Replace with actual URL
+    iframeSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.1739930213594!2d46.62726967464181!3d24.686544878043225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f1c55b6f82c85%3A0x15bdb9ea56e37c7f!2sEmbassy%20of%20Kenya!5e0!3m2!1sen!2ske!4v1736970212636!5m2!1sen!2ske" // Replace with actual URL
   },
   {
     country: 'Dubai',
     address: '45 Tea Lane, Dubai, UAE',
     openingHours: '9:00 AM - 7:00 PM',
-    iframeSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.493137847623!2d36.683081900000005!3d-1.2470785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f18d575309a17%3A0xc1d6d4f5d6dc3221!2sUthiru%20Genesis-Kinoo%20Branch!5e0!3m2!1sen!2ske!4v1724051307338!5m2!1sen!2ske', // Replace with actual URL
+    iframeSrc:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.9969723995537!2d55.24402381744385!3d25.203324600000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f421367d0e139%3A0x590b890edda0eded!2sConsulate%20of%20Kenya!5e0!3m2!1sen!2ske!4v1736971181503!5m2!1sen!2ske"  // Replace with actual URL
   },
   {
     country: 'Kuwait',
     address: '67 Tea Street, Kuwait City, Kuwait',
     openingHours: '10:00 AM - 8:00 PM',
-    iframeSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.493137847623!2d36.683081900000005!3d-1.2470785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f18d575309a17%3A0xc1d6d4f5d6dc3221!2sUthiru%20Genesis-Kinoo%20Branch!5e0!3m2!1sen!2ske!4v1724051307338!5m2!1sen!2ske', // Replace with actual URL
+    iframeSrc:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55658.867399883304!2d47.58107370552516!3d29.321084095033594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcff6b679e9db8d%3A0x986a6aef2e2f3ea8!2sAl%20Jahra%20Industrial%20Area%20Block%201%2C%20Al%20Jahra%2C%20Kuwait!5e0!3m2!1sen!2ske!4v1736971590794!5m2!1sen!2ske"  // Replace with actual URL
   },
 ];
 

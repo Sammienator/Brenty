@@ -16,6 +16,8 @@ import './App.css'; // Ensure Tailwind CSS is configured properly
 import Location from './components/Location';
 import Form from './components/Form';
 
+
+
 function App() {
 
   AOS.init({
@@ -35,6 +37,7 @@ function App() {
       <Cutlery />
       <AboutUs />
       <Testimonials />
+
       <Form/>
       <Footer />
       {/* Other components will go here */}
