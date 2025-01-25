@@ -4,7 +4,6 @@ import 'aos/dist/aos.css';
 
 import HeroSection from './components/HeroSection';
 import Navbar from './components/Navbar'; // Removed .js extension
-import AboutUs from './components/AboutUs';
 import Gallery from './components/Gallery';
 import TeaInfo from './components/TeaInfo';
 import Shop from './components/Shop';
@@ -35,7 +34,7 @@ function App() {
       <TeaInfo />
       <Shop/>
       <Cutlery />
-      <AboutUs />
+    
       <Testimonials />
 
       <Form/>

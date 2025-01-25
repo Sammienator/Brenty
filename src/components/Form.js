@@ -17,7 +17,7 @@ const Form = () => {
     };
 
     return (
-        <div className="flex flex-col md:flex-row justify-between items-center py-10 px-5 bg-gradient-to-r from-white via-[#FAD02E] to-[#FFC300] dark:bg-[#FFC300]">
+        <div className="flex flex-col md:flex-row justify-between items-center py-10 px-5  dark:bg-[#FFC300]">
             {/* Left Column */}
             <div className="w-full md:w-1/2 flex justify-center items-center">
                 <img alt="Worldwide communication" src={worldwide} className="h-48 w-48" />

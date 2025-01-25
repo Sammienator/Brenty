@@ -38,7 +38,7 @@ const Shop = () => {
     email: '',
     deliveryLocation: ''
   });
-  const [showCheckoutForm, setShowCheckoutForm] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const settings = {
     dots: true,
@@ -47,7 +47,7 @@ const Shop = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 7000, // 7 seconds
+    autoplaySpeed: 7000,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
@@ -79,6 +79,7 @@ const Shop = () => {
     } else {
       setCart([...cart, { ...product, quantity: 1 }]);
     }
+    setIsPopupOpen(true); // Open the checkout modal when an item is added to the cart
   };
 
   const updateQuantity = (id, quantity) => {
@@ -89,10 +90,9 @@ const Shop = () => {
     e.preventDefault();
     console.log('Sending email with:', { cart, checkoutDetails });
     // Placeholder for email sending logic
-    // sendEmail({ cart, checkoutDetails });
     setCart([]);
     setCheckoutDetails({ email: '', deliveryLocation: '' });
-    setShowCheckoutForm(false); // Hide form after submission
+    setIsPopupOpen(false); // Close the popup after checkout
   };
 
   return (
@@ -138,42 +138,52 @@ const Shop = () => {
           ))}
         </Slider>
 
-        {/* Show 'Checkout' button if there are items in the cart */}
-        {cart.length > 0 && (
-          <div className="text-center mt-10">
-            <button 
-              onClick={() => setShowCheckoutForm(!showCheckoutForm)} 
-              className="px-6 py-3 bg-green-500 text-white hover:bg-green-700 transition duration-300"
-            >
-              {showCheckoutForm ? 'Hide Checkout' : 'Checkout'}
-            </button>
+        {/* Popup for checkout */}
+        {isPopupOpen && (
+          <div className="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+            <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+              <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+              <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">​</span>
+              <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                  <div className="sm:flex sm:items-start">
+                    <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                      <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                        Checkout
+                      </h3>
+                      <form onSubmit={handleCheckout}>
+                        <input 
+                          type="email" 
+                          value={checkoutDetails.email} 
+                          onChange={(e) => setCheckoutDetails({ ...checkoutDetails, email: e.target.value })} 
+                          placeholder="Your Email" 
+                          required 
+                          className="mt-4 w-full p-2 border rounded"
+                        />
+                        <select 
+                          value={checkoutDetails.deliveryLocation} 
+                          onChange={(e) => setCheckoutDetails({ ...checkoutDetails, deliveryLocation: e.target.value })} 
+                          required 
+                          className="mt-4 w-full p-2 border rounded"
+                        >
+                          <option value="">Select Delivery Location</option>
+                          <option value="Saudi Arabia">Saudi Arabia</option>
+                          <option value="Dubai">Dubai</option>
+                          <option value="Kuwait">Kuwait</option>
+                        </select>
+                        <button type="submit" className="mt-4 px-6 py-2 bg-green-500 text-white hover:bg-green-700 transition duration-300">Submit Order</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                  <button type="button" onClick={() => setIsPopupOpen(false)} className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-        )}
-
-        {/* Show the form only if showCheckoutForm is true */}
-        {showCheckoutForm && (
-          <form onSubmit={handleCheckout} className="mt-10">
-            <input 
-              type="email" 
-              value={checkoutDetails.email} 
-              onChange={(e) => setCheckoutDetails({ ...checkoutDetails, email: e.target.value })} 
-              placeholder="Your Email" 
-              required 
-              className="mt-4 w-full p-2 border rounded"
-            />
-            <select 
-              value={checkoutDetails.deliveryLocation} 
-              onChange={(e) => setCheckoutDetails({ ...checkoutDetails, deliveryLocation: e.target.value })} 
-              required 
-              className="mt-4 w-full p-2 border rounded"
-            >
-              <option value="">Select Delivery Location</option>
-              <option value="Saudi Arabia">Saudi Arabia</option>
-              <option value="Dubai">Dubai</option>
-              <option value="Kuwait">Kuwait</option>
-            </select>
-            <button type="submit" className="mt-4 px-6 py-2 bg-green-500 text-white hover:bg-green-700 transition duration-300">Submit Order</button>
-          </form>
         )}
       </div>
     </section>
